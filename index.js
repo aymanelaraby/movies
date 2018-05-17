@@ -1,5 +1,5 @@
 const app = {
-    init: function(formSelector){
+    init(formSelector){
       this.max = 0
       this.list = document.querySelector(selectors.listSelector)
 
@@ -12,13 +12,13 @@ const app = {
       
     },
 
-    renderListItem : function(movie){
+    renderListItem(movie){
         const item = document.createElement('li')
         item.textContent = movie.name
         return item 
     },
 
-    handleSubmit: function(ev) {
+    handleSubmit(ev) {
         
         const f = ev.target
         const movie = {
