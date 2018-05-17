@@ -1,14 +1,21 @@
 const app = {
     init: function(formSelector){
       this.max = 0
+      this.list = document.querySelector(selectors.listSelector)
 
       document
-         .querySelector(formSelector)
+         .querySelector(selectors.formSelector)
          .addEventListener('submit', ev =>{
             ev.preventDefault()
             this.handleSubmit
          })
       
+    },
+
+    renderListItem : function(movie){
+        const item = document.createElement('li')
+        item.textContent = movie.name
+        return item 
     },
 
     handleSubmit: function(ev) {
@@ -18,8 +25,13 @@ const app = {
             rank: ++this.max,
             name: f.movieName.value,
         }
+        const item = this.renderListItem(movie)
+        this.list.appenedChild(item)
         f.reset()
     },
 }
 
-app.init(#movieForm)
+app.init({
+    formSelector :'#movieForm',
+    listSelector : '#movieList',
+})
