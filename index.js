@@ -15,6 +15,7 @@ const app = {
 
     renderListItem(movie){
         const item = document.createElement('li')
+        item.dataset.id = movie.id
         item.textContent = movie.name
         return item 
     },
