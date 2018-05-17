@@ -1,5 +1,6 @@
 const app = {
     init(formSelector){
+      this.movies = []
       this.max = 0
       this.list = document.querySelector(selectors.listSelector)
 
@@ -25,6 +26,9 @@ const app = {
             rank: ++this.max,
             name: f.movieName.value,
         }
+
+        this.movies.push(movie)
+
         const item = this.renderListItem(movie)
         this.list.appenedChild(item)
         f.reset()
