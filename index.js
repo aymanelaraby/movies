@@ -28,10 +28,10 @@ const app = {
             name: f.movieName.value,
         }
 
-        this.movies.push(movie)
+        this.movies.unshift(movie)
 
         const item = this.renderListItem(movie)
-        this.list.appenedChild(item)
+        this.list.insertbefore(item, this.list.firstElementChild)
         f.reset()
     },
 }
